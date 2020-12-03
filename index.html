@@ -11,14 +11,14 @@
             function () {
               let interval;
               //Grip Pressed
-              this.el.addEventListener('gripdown', function (e) {
+              this.el.addEventListener('xbuttondown', function (e) {
                 interval = setInterval(()=>{
                   const sphere = document.querySelector('#sphere');
                   sphere.object3D.position.set(sphere.object3D.position.x + 1,sphere.object3D.position.y,sphere.object3D.position.z )
                 },500)
               });
               //Grip Released
-              this.el.addEventListener('gripup', function (e) {
+              this.el.addEventListener('xbuttonup', function (e) {
                   //Setting grip flag as false.
                   this.grip = false;
                   clearInterval(interval)
