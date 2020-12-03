@@ -13,7 +13,7 @@ AFRAME.registerComponent('x-button-listener', {
       this.el.addEventListener('xbuttondown', function (e) {
         interval = setInterval(()=>{
           this.el.object3D.position.set(this.el.object3D.position.x + 1,this.el.object3D.position.y,this.el.object3D.position.z )
-        },500)
+        },2000)
       });
       //Grip Released
       this.el.addEventListener('xbuttonup', function (e) {
