@@ -8,18 +8,12 @@
     <script>
 AFRAME.registerComponent('x-button-listener', {
   init: function () {
-      let interval;
-      //Grip Pressed
+      
       this.el.addEventListener('xbuttondown', function (e) {
-        interval = setInterval(()=>{
-          this.el.object3D.position.set(this.el.object3D.position.x + 1,this.el.object3D.position.y,this.el.object3D.position.z )
-        },2000)
+          
+      ethis.l.setAttribute('visible', !this.el.getAttribute('visible'));
       });
-      //Grip Released
-      this.el.addEventListener('xbuttonup', function (e) {
-          //Setting grip flag as false.
-          clearInterval(interval)
-      });
+      
   }
 });
 
