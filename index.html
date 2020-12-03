@@ -11,7 +11,7 @@ AFRAME.registerComponent('x-button-listener', {
       
       this.el.addEventListener('xbuttondown', function (e) {
           
-      ethis.l.setAttribute('visible', !this.el.getAttribute('visible'));
+        this.el.setAttribute('visible', !this.el.getAttribute('visible'));
       });
       
   }
