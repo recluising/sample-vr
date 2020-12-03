@@ -6,20 +6,27 @@
     <meta name="description" content="Hello, WebVR! • A-Frame">
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
     <script>
-      // AFRAME.registerComponent('thumbstick-logging',{
-      //   init: function () {
-      //     this.el.addEventListener('thumbstickmoved', this.logThumbstick);
-      //   },
-      //   logThumbstick: function (evt) {
-      //     const sphere = document.querySelector('#sphere');
-      //     sphere.object3D.position.set(sphere.object3D.position.x + 1,sphere.object3D.position.y,sphere.object3D.position.z )
-  
-      //   }
-      // });
-      setInterval(()=>{
-        const sphere = document.querySelector('#sphere');
-      sphere.object3D.position.set(sphere.object3D.position.x + 1,sphere.object3D.position.y,sphere.object3D.position.z )
-      },1)
+      AFRAME.registerComponent('input-listen', {
+        init:
+            function () {
+              let interval;
+              //Grip Pressed
+              this.el.addEventListener('gripdown', function (e) {
+                interval = setInterval(()=>{
+                  const sphere = document.querySelector('#sphere');
+                  sphere.object3D.position.set(sphere.object3D.position.x + 1,sphere.object3D.position.y,sphere.object3D.position.z )
+                },500)
+              });
+              //Grip Released
+              this.el.addEventListener('gripup', function (e) {
+                  //Setting grip flag as false.
+                  this.grip = false;
+                  clearInterval(interval)
+              });
+              
+            }
+      })
+      
     </script>
   </head>
   <body>
