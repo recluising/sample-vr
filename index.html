@@ -9,17 +9,17 @@
       AFRAME.registerComponent('input-listen', {
         init:
             function () {
-              let textButton;
+              let textField;
               setTimeout(()=>{
-                textButton = document.getElementById('text');
-                textButton.value = "ready";
+                textField = document.getElementById('text');
+                textField.setObject3D('value', "ready");
               },4000)
               
                 const setText =(text)=>{
-                  if(!textButton){
-                    textButton = document.getElementById('text');
+                  if(!textField){
+                    textField = document.getElementById('text');
                   }
-                  textButton.value = text;
+                  textField.value = text;
                 }
                 //Declaration and initialization of flag 
                 //which exprains grip button is pressed or not.
