@@ -149,11 +149,14 @@
     <div id="info"></div>
     <a-scene background="color: #FAFAFA">
       <!-- <a-sphere id="sphere" position="0 1.25 -5" radius="1.25" color="#EF2D5E" shadow oculus-touch-controls x-button-listener></a-sphere> -->
-      <a-sphere id="sphere" position="0 1.25 -5" radius="1.25" color="#EF2D5E" shadow ></a-sphere>
+      <!-- <a-sphere id="sphere" position="0 1.25 -5" radius="1.25" color="#EF2D5E" shadow ></a-sphere> -->
       <!-- <a-entity id="text" text="value: Hello World;" geometry="primitive: plane; width: 4; height: auto"
       material="color: blue" oculus-touch-controls="hand: right" input-listen></a-entity> -->
-      <a-entity id="text" text="value: Hello World;" 
-      material="color: blue" position="-2.5 0.7 0"></a-entity>
+      <!-- <a-entity id="text" text="value: Hello World;" 
+      material="color: blue" position="-2.5 0.7 0"></a-entity> -->
+      <a-entity id="opacity" position="-2.5 0.7 0"
+                animation="property: components.text.material.uniforms.opacity.value; to: 0; dir: alternate; loop: true"
+                text="color: white; align: center; value: Animating opacity; width: 1.5">
     </a-scene>
   </body>
 
