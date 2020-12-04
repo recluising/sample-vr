@@ -6,16 +6,22 @@
     <meta name="description" content="Hello, WebVR! • A-Frame">
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
     <script>
-AFRAME.registerComponent('x-button-listener', {
-  init: function () {
+// AFRAME.registerComponent('x-button-listener', {
+//   init: function () {
       
-      this.el.addEventListener('xbuttondown', function (e) {
+//       this.el.addEventListener('xbuttondown', function (e) {
           
-        this.el.setAttribute('visible', !this.el.getAttribute('visible'));
-      });
+//         this.el.setAttribute('visible', !this.el.getAttribute('visible'));
+//       });
       
-  }
-});
+//   }
+// });
+
+setInterval(()=>{
+        debugger;
+        const sphere = document.querySelector('#sphere');
+      sphere.object3D.position.set(sphere.object3D.position.x + 0.5,sphere.object3D.position.y,sphere.object3D.position.z )
+      },1000)
 
       
     </script>
@@ -23,7 +29,8 @@ AFRAME.registerComponent('x-button-listener', {
   <body>
     <div id="info"></div>
     <a-scene background="color: #FAFAFA">
-      <a-sphere id="sphere" position="0 1.25 -5" radius="1.25" color="#EF2D5E" shadow oculus-touch-controls x-button-listener></a-sphere>
+      <!-- <a-sphere id="sphere" position="0 1.25 -5" radius="1.25" color="#EF2D5E" shadow oculus-touch-controls x-button-listener></a-sphere> -->
+      <a-sphere id="sphere" position="0 1.25 -5" radius="1.25" color="#EF2D5E" shadow ></a-sphere>
     </a-scene>
   </body>
 
