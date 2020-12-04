@@ -147,15 +147,25 @@
   </head>
   <body>
     <div id="info"></div>
-    <a-scene background="color: #FAFAFA">
-      <!-- <a-sphere id="sphere" position="0 1.25 -5" radius="1.25" color="#EF2D5E" shadow oculus-touch-controls x-button-listener></a-sphere> -->
-      <!-- <a-sphere id="sphere" position="0 1.25 -5" radius="1.25" color="#EF2D5E" shadow ></a-sphere> -->
-      <!-- <a-entity id="text" text="value: Hello World;" geometry="primitive: plane; width: 4; height: auto"
-      material="color: blue" oculus-touch-controls="hand: right" input-listen></a-entity> -->
-      <!-- <a-entity id="text" text="value: Hello World;" 
-      material="color: blue" position="-2.5 0.7 0"></a-entity> -->
-      <a-text value="Now Interactable" geometry="primitive:plane" position="1 1 1"></a-text>
+    <a-scene>
+      <a-torus position="0 1.25 -5" radius="5" color="red"></a-torus>
+      <a-torus position="0 1.25 -5" radius="4" color="orange"></a-torus>
+      <a-torus position="0 1.25 -5" radius="3" color="blue"></a-torus>
+      <a-torus position="0 1.25 -5" radius="2" color="hotpink"></a-torus>
+      
+    <!--   pillars -->
+      <a-cylinder position="-1 1 -3" rotation="0 0 0" radius="0.1" height="2" color="magenta"></a-cylinder>
+      <a-cylinder position="1 1 -3" radius="0.1" height="2" color="magenta"></a-cylinder>
+      
+    <!--   banner -->
+      <a-box color="tomato" position="0 1.7 -3" rotation="0 0 0" depth="0.1" height="0.5" width="2"></a-box>
+      <a-text value="Hello A-Frame!" position="-0.9 1.7 -2.9" width="6" color="black"></a-text>
+      
+    <!--   ground and sky -->
+      <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
+      <a-sky color="lightblue"></a-sky>
     </a-scene>
+    
   </body>
 
   
