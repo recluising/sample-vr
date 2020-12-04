@@ -19,12 +19,12 @@
                   if(!textField){
                     textField = document.getElementById('text');
                   }
-                  textField.value = text;
+                  textField.setAttribute('value', text);
                 }
                 //Declaration and initialization of flag 
                 //which exprains grip button is pressed or not.
                 //"this.el" reffers ctlR or L in this function
-                this.el.grip = false;
+                // this.el.grip = false;
 
                 //Called when trigger is pressed 
                 this.el.addEventListener('triggerdown', function (e) {
