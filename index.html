@@ -10,9 +10,9 @@
         init:
             function () {
               this.el.addEventListener('triggerdown', function (e) {
-                const console = document.qerElementById('consolePlane');
-                console.setAttribute('text',`value: hola; color:white;`)
+                const console = document.getElementById('consolePlane');
                 // console.setAttribute('text',`value: ${this.object3D.getWorldPosition()}; color:white;`)
+                console.setAttribute('text',`value: hola; color:white;`)
                 // this.object3D.getWorldPosition()
               });
             }
@@ -274,6 +274,13 @@
         })
       
         window.requestAnimationFrame(moveUp);
+
+        window.requestAnimationFrame(()=>{
+          // const console = document.getElementById('consolePlane');
+          // // console.setAttribute('text',`value: ${this.object3D.getWorldPosition()}; color:white;`)
+          // console.setAttribute('text',`value: hola; color:white;`)
+        })
+        
       },1000)
 
     </script>
@@ -282,8 +289,9 @@
     <div id="info"></div>
     <a-scene >
       <a-entity>
-        <a-entity input-listen></a-entity>
-        <a-entity id="cubes" position="-5 -3 -5">
+        <!-- <a-entity oculus-touch-controls="hand: right" input-listen></a-entity> -->
+        <a-entity oculus-touch-controls="hand: right" input-listen></a-entity>
+        <a-entity id="cubes" position="-5 -3 -5" input-listen >
         </a-entity>
         <a-entity id="console" position="6 0 -5">
           <a-plane id="consolePlane" width="10" height="4" color="black"></a-plane>
