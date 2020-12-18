@@ -12,8 +12,7 @@
               this.el.addEventListener('triggerdown', function (e) {
                 const console = document.getElementById('consolePlane');
                 const point = this.object3D.getWorldPosition();
-                // const pointString = `${point.x.toFixed(2)}, ${point.y.toFixed(2)}, ${point.z.toFixed(2)}`;
-                const pointString = e.detail;
+                const pointString = `${point.x.toFixed(2)}, ${point.y.toFixed(2)}, ${point.z.toFixed(2)}`;
                 console.setAttribute('text',`value: ${pointString}; color:white;`)
               });
             }
