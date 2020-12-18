@@ -6,6 +6,25 @@
     <meta name="description" content="Hello, WebVR! • A-Frame">
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
     <script>
+      AFRAME.registerComponent('input-listen', {
+        init:
+            function () {
+              this.el.addEventListener('triggerdown', function (e) {
+                const console = document.qerElementById('consolePlane');
+                console.setAttribute('text',`value: ${this.object3D.getWorldPosition()}`)
+                // this.object3D.getWorldPosition()
+              });
+            }
+      });
+
+      AFRAME.registerComponent('cursor-listener', {
+      init: function () {
+        this.el.addEventListener('click', function (evt) {
+          debugger
+        });
+      }
+    });
+
       // AFRAME.registerComponent('input-listen', {
       //   init:
       //       function () {
@@ -210,41 +229,41 @@
 
           // Setting box
           box.setAttribute('color',color);
-          box.setAttribute('position',`0 ${initialY} -0.25`);
+          box.setAttribute('position',`0 0 -0.25`);
           box.setAttribute('height','1');
           box.setAttribute('width','11');
           box.setAttribute('depth','0.5')
 
           // Setting background
           background.setAttribute('color','#cfcfcf');
-          background.setAttribute('position',`0 ${initialY} 0`);
+          background.setAttribute('position',`0 0 0`);
           background.setAttribute('height','1');
           background.setAttribute('width','11');
 
           // Setting hashPlane
           hashPlane.setAttribute('color','#cfcfcf');
-          hashPlane.setAttribute('position',`-2.5 ${initialY + 0.25} 0`);
+          hashPlane.setAttribute('position',`-2.5 0.25 0`);
           hashPlane.setAttribute('height','0.5');
           hashPlane.setAttribute('width','5');
           hashPlane.setAttribute('text',`value: ${hash}; color:black; wrap-count:63;`);
           
           // Setting verdictPlane
           verdictPlane.setAttribute('color','#cfcfcf');
-          verdictPlane.setAttribute('position',`2.5 ${initialY + 0.25} 0`);
+          verdictPlane.setAttribute('position',`2.5 0.25 0`);
           verdictPlane.setAttribute('height','0.5');
           verdictPlane.setAttribute('width','5');
           verdictPlane.setAttribute('text',`value: ${verdict}; color:${color}; wrap-count:63; align:right;`);
 
           // Setting tagsPlane
           tagsPlane.setAttribute('color','#cfcfcf');
-          tagsPlane.setAttribute('position',`-2.5 ${initialY + -0.25} 0`);
+          tagsPlane.setAttribute('position',`-2.5 -0.25 0`);
           tagsPlane.setAttribute('height','0.5');
           tagsPlane.setAttribute('width','5');
           tagsPlane.setAttribute('text',`value: ${tags.join(', ')}; color:${color}; wrap-count:63; align:left;`);
 
           // Setting row
           row.classList.add('row');
-          row.setAttribute('position','0 -2 -5');
+          row.setAttribute('position',`0 ${initialY} 0`);
           row.appendChild(box);
           row.appendChild(background);
           row.appendChild(hashPlane);
@@ -259,9 +278,7 @@
         proto.forEach((item,index)=>{
           addRow(-index*1.3, item.hash, item.verdict, item.tags);
         })
-        
-        
-
+      
         window.requestAnimationFrame(moveUp);
       },1000)
 
@@ -269,12 +286,17 @@
   </head>
   <body>
     <div id="info"></div>
-    <a-scene>
-      <!-- <a-entity oculus-touch-controls="hand: right" input-listen></a-text> -->
-      <a-entity id="cubes">
+    <a-scene >
+      <a-entity>
+        <a-entity oculus-touch-controls="hand: right" input-listen></a-text>
+        <a-entity id="cubes" position="-5 0 -5">
+        </a-entity>
+        <a-entity id="console" position="6 0 -5">
+          <a-plane id="consolePlane" width="10" height="4" color="black"></a-plane>
+        </a-entity>
+        
+        <a-sky color="lightblue"></a-sky>
       </a-entity>
-      
-      <a-sky color="lightblue"></a-sky>
     </a-scene>
     
   </body>
