@@ -202,10 +202,8 @@
 
       function moveUp(){
         window.requestAnimationFrame(()=>{
-          let rows = document.querySelectorAll('.row');
-          rows.forEach(row=>{
-            row.object3D.position.y = row.object3D.position.y+0.01;
-          })
+          let rows = document.getElementById('cubes');
+          rows.object3D.position.y = rows.object3D.position.y+0.01;
           moveUp();
         })
       }
